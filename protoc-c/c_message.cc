@@ -302,7 +302,8 @@ void MessageGenerator::GenerateClosureTypedef(io::Printer* printer)
   vars["name"] = FullNameToC(descriptor_->full_name());
   printer->Print(vars,
                  "typedef void (*$name$_Closure)\n"
-		 "                 (const $name$ *message,\n"
+         "                 (const ProtobufCService *service,\n"
+         "                  const $name$ *message,\n"
 		 "                  void *closure_data);\n");
 }
 

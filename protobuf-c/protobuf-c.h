@@ -365,7 +365,7 @@ typedef struct ProtobufCServiceDescriptor ProtobufCServiceDescriptor;
 /** Boolean type. */
 typedef int protobuf_c_boolean;
 
-typedef void (*ProtobufCClosure)(const ProtobufCMessage *, void *closure_data);
+typedef void (*ProtobufCClosure)(const ProtobufCService*, const ProtobufCMessage *, void *closure_data);
 typedef void (*ProtobufCMessageInit)(ProtobufCMessage *);
 typedef void (*ProtobufCServiceDestroy)(ProtobufCService *);
 
@@ -731,6 +731,9 @@ struct ProtobufCService {
 		       void *closure_data);
 	/** Function to destroy the service. */
 	void (*destroy)(ProtobufCService *service);
+
+    /** User data for easier c++ encapsulation */
+    void *data;
 };
 
 /**

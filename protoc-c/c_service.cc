@@ -126,7 +126,7 @@ void ServiceGenerator::GenerateInitMacros(io::Printer* printer)
 {
   printer->Print(vars_,
 		 "#define $ucfullname$__BASE_INIT \\\n"
-		 "    { &$lcfullname$__descriptor, protobuf_c_service_invoke_internal, NULL }\n"
+         "    { &$lcfullname$__descriptor, protobuf_c_service_invoke_internal, NULL, NULL }\n"
 		 "#define $ucfullname$__INIT(function_prefix__) \\\n"
 		 "    { $ucfullname$__BASE_INIT");
   for (int i = 0; i < descriptor_->method_count(); i++) {
